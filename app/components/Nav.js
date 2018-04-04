@@ -1,7 +1,7 @@
 const React = require('react');
 const NavLink = require('react-router-dom').NavLink;
 
-function Nav () {
+function Nav() {
   return (
     <ul className="nav">
       <li>
@@ -20,7 +20,7 @@ function Nav () {
         </NavLink>
       </li>
     </ul>
-  )
+  );
 }
 
 module.exports = Nav;

@@ -1,5 +1,5 @@
 const React = require('react');
-const Link = require('react-router-dom').Link
+const Link = require('react-router-dom').Link;
 
 class Home extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class Home extends React.Component {
         Battle
         </Link>
       </div>
-    )
+    );
   }
 }
 

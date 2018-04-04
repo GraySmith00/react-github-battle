@@ -6,8 +6,8 @@ class PlayerInput extends React.Component {
     super(props);
 
     this.state = {
-      username: ''
-    }
+      username: '',
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,19 +15,19 @@ class PlayerInput extends React.Component {
 
   handleChange(event) {
     const value = event.target.value;
-    this.setState(function() {
+    this.setState(function () {
       return {
-        username: value
-      }
-    })
+        username: value,
+      };
+    });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     this.props.onSubmit(
       this.props.id,
-      this.props.username
-    )
+      this.props.username,
+    );
   }
 
   render() {
@@ -54,15 +54,16 @@ class PlayerInput extends React.Component {
           Submit
         </button>
       </div>
-    )
+    );
   }
 }
 
 PlayerInput.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  onSubmit: PropTypes.func.isRequired
-}
+  onSubmit: PropTypes.func.isRequired,
+  username: PropTypes.string.isRequired,
+};
 
 class Battle extends React.Component {
   constructor(props) {
@@ -72,17 +73,17 @@ class Battle extends React.Component {
       playerOneName: '',
       playerTwoName: '',
       playerOneImage: null,
-      playerTwoImage: null
-    }
+      playerTwoImage: null,
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(id, username) {
-    this.setState(function() {
+    this.setState(function () {
       const newState = {};
-      newState[id + 'Name'] = username;
-      newState[id + 'Image'] = 'https://github.com/' + username + '.png?size=200';
+      newState[`${id}Name`] = username;
+      newState[`${id}Image`] = `https://github.com/${username}.png?size=200`;
       return newState;
     });
   }
@@ -94,22 +95,11 @@ class Battle extends React.Component {
     return (
       <div>
         <div className="row">
-          {!playerOneName && 
-          <PlayerInput 
-            id="playerOne" 
-            label="Player One" 
-            onSubmit={this.handleSubmit} 
-          />}
-
-          {!playerTwoName && 
-            <PlayerInput 
-            id="playerTwo" 
-            label="Player Two" 
-            onSubmit={this.handleSubmit} 
-          />}
+          {!playerOneName && <PlayerInput id="playerOne" label="Player One" onSubmit={this.handleSubmit} />}
+          {!playerTwoName && <PlayerInput id="playerTwo" label="Player Two" onSubmit={this.handleSubmit} />}
         </div>
       </div>
-    )
+    );
   }
 }
 
