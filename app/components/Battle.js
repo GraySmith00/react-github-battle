@@ -15,11 +15,9 @@ class PlayerInput extends React.Component {
 
   handleChange(event) {
     const value = event.target.value;
-    this.setState(function () {
-      return {
-        username: value,
-      };
-    });
+    this.setState(() => ({
+      username: value,
+    }));
   }
 
   handleSubmit(event) {
@@ -80,7 +78,7 @@ class Battle extends React.Component {
   }
 
   handleSubmit(id, username) {
-    this.setState(function () {
+    this.setState(() => {
       const newState = {};
       newState[`${id}Name`] = username;
       newState[`${id}Image`] = `https://github.com/${username}.png?size=200`;

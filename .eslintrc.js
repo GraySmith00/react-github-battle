@@ -9,7 +9,7 @@ module.exports = {
         "react/jsx-filename-extension": 0,
         "prefer-destructuring": 0,
         "react/prefer-stateless-function": 0,
-        "prefer-arrow-callback": 0,
+       
         "func-names": 0,
         "react/no-multi-comp": 0,
         "jsx-a11y/anchor-is-valid": 0,
