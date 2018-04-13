@@ -5,13 +5,13 @@ const axios = require('axios');
 // const params = `?client_id=${id}&client_secret=${sec}`;
 
 function getProfile(username) {
-  return axios.get(`https://api.github.com/users/${username + params}`)
+  return axios.get(`https://api.github.com/users/${username}`)
     .then(res => res.data);
 }
 
 function getRepos(username) {
   // return axios.get(`https://api.github.com/users/${username}/repos/${params}&per_page=100`);
-  return axios.get(`https://api.github.com/users/${username}/repos&per_page=100`);
+  return axios.get(`https://api.github.com/users/${username}/repos?per_page=100`);
 }
 
 function getStarCount(repos) {
@@ -49,7 +49,7 @@ function sortPlayers(players) {
 }
 
 module.exports = {
-  battle: () => (axios.all(players.map(getUserData))
+  battle: players => (axios.all(players.map(getUserData))
     .then(sortPlayers)
     .catch(handleError)
   ),
