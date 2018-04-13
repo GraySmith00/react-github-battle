@@ -131,3 +131,12 @@ a {
 .button:active {
   transform: translateY(1px);
 }
+
+.reset {
+  border: none;
+  background: transparent;
+  color: crimson;
+  display: block;
+  width: 100%;
+  text-align: center;
+}

@@ -14,7 +14,7 @@ function SelectLanguage(props) {
         >
           {lang}
         </li>
-        ), this)}
+        ))}
     </ul>
   );
 }
